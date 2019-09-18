@@ -18,5 +18,4 @@ Para tal será criado uma API RESTful simples para Controle de Pedidos.
 - [x] Documentar API com Swagger
 - [ ] Autenticação com JWT
 - [x] Integração contínua com TravisCI
-
 - [ ] Publicar a API no Heroku
