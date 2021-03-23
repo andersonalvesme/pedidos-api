@@ -23,7 +23,7 @@ public class ProdutosController {
     @GetMapping
     public ResponseEntity<Page<ProdutoDto>> findAll(Integer page, Integer size, Sort sort) {
 
-        PageRequest pageable = new PageRequest(page, size, sort);
+        PageRequest pageable = PageRequest.of(page, size, sort);
 
         Page<ProdutoDto> pageProdutosDto = service.findAll(pageable);
 

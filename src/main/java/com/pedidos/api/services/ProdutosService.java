@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
+import java.util.Optional;
 
 @Service
 public class ProdutosService {
@@ -31,7 +32,7 @@ public class ProdutosService {
 
     public ProdutoDto findOne(Long id) {
 
-        Produto produto = repository.findOne(id);
+        Optional<Produto> produto = repository.findById(id);
 
         return modelMapper.map(produto, ProdutoDto.class);
     }
@@ -46,7 +47,7 @@ public class ProdutosService {
     }
 
     public void delete(Long id) {
-        repository.delete(id);
+        repository.deleteById(id);
     }
 
 }

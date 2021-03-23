@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
+import java.util.Optional;
 
 @Service
 public class PedidosService {
@@ -31,7 +32,7 @@ public class PedidosService {
 
     public PedidoDto findOne(Long id) {
 
-        Pedido pedido = repository.findOne(id);
+        Optional<Pedido> pedido = repository.findById(id);
 
         return modelMapper.map(pedido, PedidoDto.class);
     }
@@ -46,7 +47,7 @@ public class PedidosService {
     }
 
     public void delete(Long id) {
-        repository.delete(id);
+        repository.deleteById(id);
     }
 
 }

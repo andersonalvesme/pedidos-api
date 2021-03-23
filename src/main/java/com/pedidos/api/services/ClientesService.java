@@ -10,7 +10,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.lang.reflect.Type;
+import java.util.Optional;
 
 @Service
 public class ClientesService {
@@ -31,7 +33,7 @@ public class ClientesService {
 
     public ClienteDto findOne(Long id) {
 
-        Cliente cliente = repository.findOne(id);
+        Optional<Cliente> cliente = repository.findById(id);
 
         return modelMapper.map(cliente, ClienteDto.class);
     }
@@ -46,7 +48,7 @@ public class ClientesService {
     }
 
     public void delete(Long id) {
-        repository.delete(id);
+        repository.deleteById(id);
     }
 
 }

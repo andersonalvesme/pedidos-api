@@ -23,7 +23,7 @@ public class PedidosController {
     @GetMapping
     public ResponseEntity<Page<PedidoDto>> findAll(Integer page, Integer size, Sort sort) {
 
-        PageRequest pageable = new PageRequest(page, size, sort);
+        PageRequest pageable = PageRequest.of(page, size, sort);
 
         Page<PedidoDto> pagePedidos = service.findAll(pageable);
 

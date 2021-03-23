@@ -28,7 +28,7 @@ public class ClientesController {
     @GetMapping
     public ResponseEntity<Page<ClienteDto>> findAll(Integer page, Integer size, Sort sort) {
 
-        PageRequest pageable = new PageRequest(page, size, sort);
+        PageRequest pageable = PageRequest.of(page, size, sort);
 
         Page<ClienteDto> pageClientesDto = service.findAll(pageable);
 
