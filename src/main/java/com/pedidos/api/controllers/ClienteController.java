@@ -1,8 +1,8 @@
 package com.pedidos.api.controllers;
 
-import com.pedidos.api.dtos.ProdutoDto;
+import com.pedidos.api.dtos.ClienteDto;
 import com.pedidos.api.responses.Response;
-import com.pedidos.api.services.ProdutosService;
+import com.pedidos.api.services.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -13,43 +13,48 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+//TODO
+// Adicionar tratamento para error; (try/catch)
+// Adicionar rota para listagem dos pedidos do cliente;
+// Adicionar paginação padrão caso o usuário não informe nos parametros;
+
 @RestController
-@RequestMapping("/api/produtos")
-public class ProdutosController {
+@RequestMapping("/api/clientes")
+public class ClienteController {
 
     @Autowired
-    private ProdutosService service;
+    private ClienteService service;
 
     @GetMapping
-    public ResponseEntity<Page<ProdutoDto>> findAll(Integer page, Integer size, Sort sort) {
+    public ResponseEntity<Page<ClienteDto>> findAll(Integer page, Integer size, Sort sort) {
 
         PageRequest pageable = PageRequest.of(page, size, sort);
 
-        Page<ProdutoDto> pageProdutosDto = service.findAll(pageable);
+        Page<ClienteDto> pageClientesDto = service.findAll(pageable);
 
-        return ResponseEntity.ok(pageProdutosDto);
+        return ResponseEntity.ok(pageClientesDto);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<ProdutoDto> findOne(@PathVariable("id") Long id) {
+    public ResponseEntity<ClienteDto> findOne(@PathVariable("id") Long id) {
 
-        ProdutoDto produtoDto = service.findOne(id);
+        ClienteDto clienteDto = service.findOne(id);
 
-        return ResponseEntity.ok(produtoDto);
+        return ResponseEntity.ok(clienteDto);
     }
 
     @PostMapping
-    public ResponseEntity<Response<ProdutoDto>> save(@Valid @RequestBody ProdutoDto produtoDto,
+    public ResponseEntity<Response<ClienteDto>> save(@Valid @RequestBody ClienteDto clienteDto,
                                                      BindingResult result) {
 
-        Response<ProdutoDto> response = new Response<>();
+        Response<ClienteDto> response = new Response<>();
 
         if (result.hasErrors()) {
             result.getAllErrors().forEach(error -> response.getErrors().add(error.getDefaultMessage()));
             return ResponseEntity.badRequest().body(response);
         }
 
-        response.setData(service.save(produtoDto));
+        response.setData(service.save(clienteDto));
 
         return ResponseEntity.ok(response);
     }

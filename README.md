@@ -57,3 +57,14 @@ Continuous integration using TravisCI
 Swagger
 
 http://localhost:8080/swagger-ui/#/basic-error-controller
+
+
+Obs.:
+
+https://www.devmedia.com.br/conheca-o-spring-transactional-annotations/32472
+https://medium.com/opensanca/o-que-%C3%A9-acid-59b11a81e2c6
+
+
+Interfaces? Por que usar?
+
+O que é o serialversionUUID

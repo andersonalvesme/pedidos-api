@@ -2,7 +2,7 @@ package com.pedidos.api.services;
 
 import com.pedidos.api.dtos.ClienteDto;
 import com.pedidos.api.entities.Cliente;
-import com.pedidos.api.repositories.ClientesRepository;
+import com.pedidos.api.repositories.ClienteRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,18 +10,17 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.lang.reflect.Type;
 import java.util.Optional;
 
 @Service
-public class ClientesService {
+public class ClienteService {
 
     @Autowired
     private ModelMapper modelMapper;
 
     @Autowired
-    private ClientesRepository repository;
+    private ClienteRepository repository;
 
     public Page<ClienteDto> findAll(PageRequest pageable) {
 

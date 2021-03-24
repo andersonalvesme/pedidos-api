@@ -2,7 +2,7 @@ package com.pedidos.api.services;
 
 import com.pedidos.api.dtos.PedidoDto;
 import com.pedidos.api.entities.Pedido;
-import com.pedidos.api.repositories.PedidosRepository;
+import com.pedidos.api.repositories.PedidoRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +14,13 @@ import java.lang.reflect.Type;
 import java.util.Optional;
 
 @Service
-public class PedidosService {
+public class PedidoService {
 
     @Autowired
     private ModelMapper modelMapper;
 
     @Autowired
-    private PedidosRepository repository;
+    private PedidoRepository repository;
 
     public Page<PedidoDto> findAll(PageRequest pageable) {
 

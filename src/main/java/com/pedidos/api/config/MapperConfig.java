@@ -1,4 +1,4 @@
-package com.pedidos.api.configurations;
+package com.pedidos.api.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

@@ -2,7 +2,7 @@ package com.pedidos.api.controllers;
 
 import com.pedidos.api.dtos.PedidoDto;
 import com.pedidos.api.responses.Response;
-import com.pedidos.api.services.PedidosService;
+import com.pedidos.api.services.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,10 +15,10 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/pedidos")
-public class PedidosController {
+public class PedidoController {
 
     @Autowired
-    private PedidosService service;
+    private PedidoService service;
 
     @GetMapping
     public ResponseEntity<Page<PedidoDto>> findAll(Integer page, Integer size, Sort sort) {

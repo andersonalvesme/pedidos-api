@@ -2,7 +2,7 @@ package com.pedidos.api.services;
 
 import com.pedidos.api.dtos.ProdutoDto;
 import com.pedidos.api.entities.Produto;
-import com.pedidos.api.repositories.ProdutosRepository;
+import com.pedidos.api.repositories.ProdutoRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +14,13 @@ import java.lang.reflect.Type;
 import java.util.Optional;
 
 @Service
-public class ProdutosService {
+public class ProdutoService {
 
     @Autowired
     private ModelMapper modelMapper;
 
     @Autowired
-    private ProdutosRepository repository;
+    private ProdutoRepository repository;
 
     public Page<ProdutoDto> findAll(PageRequest pageable) {
 
